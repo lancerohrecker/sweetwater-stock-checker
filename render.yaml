@@ -2,9 +2,7 @@ services:
   - type: web
     name: sweetwater-stock-checker
     env: python
-    buildCommand: |
-      pip install -r requirements.txt
-      npx playwright install chromium
+    buildCommand: ./build.sh
     startCommand: gunicorn app:app
     envVars:
       - key: PLAYWRIGHT_BROWSERS_PATH
