@@ -4,7 +4,7 @@ services:
     env: python
     buildCommand: |
       pip install -r requirements.txt
-      npx playwright install chromium --with-deps --force
+      npx playwright install chromium
     startCommand: gunicorn app:app
     envVars:
       - key: PLAYWRIGHT_BROWSERS_PATH
