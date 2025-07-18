@@ -2,8 +2,9 @@ FROM mcr.microsoft.com/playwright/python:v1.53.0-jammy
 
 WORKDIR /app
 
-COPY . .
-
+COPY requirements.txt ./
 RUN pip install -r requirements.txt
 
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:10000"]
+COPY . .
+
+CMD ["gunicorn", "--bind", "0.0.0.0:10000", "app:app"]
